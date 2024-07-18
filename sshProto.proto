@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package SshTftfProto;
+
+option go_package = "firmware.v1";
+
+service FirmwareDevice{
+    rpc ChangeType(ChangeTypeRequest) returns (ChangeTypeRequest);
+    rpc Change(ChangeRequest) returns (ChangeResponse);
+}
+
+message ChangeTypeRequest {
+
+}
+
+message ChangeTypeResponse {
+    string type = 1;
+}
+
+message ChangeRequest{
+    repeated Settings Settings = 1;
+}
+
+message ChangeResponse{
+    string status =1;
+}
+
+message Settings{
+    string name = 1;
+    string value = 2;
+}
