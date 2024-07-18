@@ -5,7 +5,7 @@ package SshTftfProto;
 option go_package = "firmware.v1";
 
 service FirmwareDevice{
-    rpc ChangeType(ChangeTypeRequest) returns (ChangeTypeRequest);
+    rpc ChangeType(ChangeTypeRequest) returns (ChangeTypeResponse);
     rpc Change(ChangeRequest) returns (ChangeResponse);
 }
 
