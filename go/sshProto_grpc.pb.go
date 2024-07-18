@@ -22,7 +22,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type FirmwareDeviceClient interface {
-	ChangeType(ctx context.Context, in *ChangeTypeRequest, opts ...grpc.CallOption) (*ChangeTypeRequest, error)
+	ChangeType(ctx context.Context, in *ChangeTypeRequest, opts ...grpc.CallOption) (*ChangeTypeResponse, error)
 	Change(ctx context.Context, in *ChangeRequest, opts ...grpc.CallOption) (*ChangeResponse, error)
 }
 
@@ -34,8 +34,8 @@ func NewFirmwareDeviceClient(cc grpc.ClientConnInterface) FirmwareDeviceClient {
 	return &firmwareDeviceClient{cc}
 }
 
-func (c *firmwareDeviceClient) ChangeType(ctx context.Context, in *ChangeTypeRequest, opts ...grpc.CallOption) (*ChangeTypeRequest, error) {
-	out := new(ChangeTypeRequest)
+func (c *firmwareDeviceClient) ChangeType(ctx context.Context, in *ChangeTypeRequest, opts ...grpc.CallOption) (*ChangeTypeResponse, error) {
+	out := new(ChangeTypeResponse)
 	err := c.cc.Invoke(ctx, "/SshTftfProto.FirmwareDevice/ChangeType", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -56,7 +56,7 @@ func (c *firmwareDeviceClient) Change(ctx context.Context, in *ChangeRequest, op
 // All implementations must embed UnimplementedFirmwareDeviceServer
 // for forward compatibility
 type FirmwareDeviceServer interface {
-	ChangeType(context.Context, *ChangeTypeRequest) (*ChangeTypeRequest, error)
+	ChangeType(context.Context, *ChangeTypeRequest) (*ChangeTypeResponse, error)
 	Change(context.Context, *ChangeRequest) (*ChangeResponse, error)
 	mustEmbedUnimplementedFirmwareDeviceServer()
 }
@@ -65,7 +65,7 @@ type FirmwareDeviceServer interface {
 type UnimplementedFirmwareDeviceServer struct {
 }
 
-func (UnimplementedFirmwareDeviceServer) ChangeType(context.Context, *ChangeTypeRequest) (*ChangeTypeRequest, error) {
+func (UnimplementedFirmwareDeviceServer) ChangeType(context.Context, *ChangeTypeRequest) (*ChangeTypeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ChangeType not implemented")
 }
 func (UnimplementedFirmwareDeviceServer) Change(context.Context, *ChangeRequest) (*ChangeResponse, error) {
