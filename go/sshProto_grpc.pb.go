@@ -37,7 +37,7 @@ func NewFirmwareDeviceClient(cc grpc.ClientConnInterface) FirmwareDeviceClient {
 
 func (c *firmwareDeviceClient) UPDFWType(ctx context.Context, in *UPDFWTypeRequest, opts ...grpc.CallOption) (*UPDFWTypeResponse, error) {
 	out := new(UPDFWTypeResponse)
-	err := c.cc.Invoke(ctx, "/SshTftfProto.FirmwareDevice/UPDFWType", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/DriverUpdateFirmwareProto.FirmwareDevice/UPDFWType", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -46,7 +46,7 @@ func (c *firmwareDeviceClient) UPDFWType(ctx context.Context, in *UPDFWTypeReque
 
 func (c *firmwareDeviceClient) UpdateFirmware(ctx context.Context, in *UpdateFirmwareRequest, opts ...grpc.CallOption) (*UpdateFirmwareResponse, error) {
 	out := new(UpdateFirmwareResponse)
-	err := c.cc.Invoke(ctx, "/SshTftfProto.FirmwareDevice/UpdateFirmware", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/DriverUpdateFirmwareProto.FirmwareDevice/UpdateFirmware", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -55,7 +55,7 @@ func (c *firmwareDeviceClient) UpdateFirmware(ctx context.Context, in *UpdateFir
 
 func (c *firmwareDeviceClient) Preset(ctx context.Context, in *PresetRequest, opts ...grpc.CallOption) (*PresetResponse, error) {
 	out := new(PresetResponse)
-	err := c.cc.Invoke(ctx, "/SshTftfProto.FirmwareDevice/Preset", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/DriverUpdateFirmwareProto.FirmwareDevice/Preset", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -108,7 +108,7 @@ func _FirmwareDevice_UPDFWType_Handler(srv interface{}, ctx context.Context, dec
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/SshTftfProto.FirmwareDevice/UPDFWType",
+		FullMethod: "/DriverUpdateFirmwareProto.FirmwareDevice/UPDFWType",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(FirmwareDeviceServer).UPDFWType(ctx, req.(*UPDFWTypeRequest))
@@ -126,7 +126,7 @@ func _FirmwareDevice_UpdateFirmware_Handler(srv interface{}, ctx context.Context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/SshTftfProto.FirmwareDevice/UpdateFirmware",
+		FullMethod: "/DriverUpdateFirmwareProto.FirmwareDevice/UpdateFirmware",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(FirmwareDeviceServer).UpdateFirmware(ctx, req.(*UpdateFirmwareRequest))
@@ -144,7 +144,7 @@ func _FirmwareDevice_Preset_Handler(srv interface{}, ctx context.Context, dec fu
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/SshTftfProto.FirmwareDevice/Preset",
+		FullMethod: "/DriverUpdateFirmwareProto.FirmwareDevice/Preset",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(FirmwareDeviceServer).Preset(ctx, req.(*PresetRequest))
@@ -156,7 +156,7 @@ func _FirmwareDevice_Preset_Handler(srv interface{}, ctx context.Context, dec fu
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var FirmwareDevice_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "SshTftfProto.FirmwareDevice",
+	ServiceName: "DriverUpdateFirmwareProto.FirmwareDevice",
 	HandlerType: (*FirmwareDeviceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

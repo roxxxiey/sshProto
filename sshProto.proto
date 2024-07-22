@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package SshTftfProto;
+package DriverUpdateFirmwareProto;
 
 option go_package = "firmware.v1";
 
