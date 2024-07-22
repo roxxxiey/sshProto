@@ -20,14 +20,14 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type ChangeTypeRequest struct {
+type UPDFWTypeRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 }
 
-func (x *ChangeTypeRequest) Reset() {
-	*x = ChangeTypeRequest{}
+func (x *UPDFWTypeRequest) Reset() {
+	*x = UPDFWTypeRequest{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_sshProto_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -35,13 +35,13 @@ func (x *ChangeTypeRequest) Reset() {
 	}
 }
 
-func (x *ChangeTypeRequest) String() string {
+func (x *UPDFWTypeRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ChangeTypeRequest) ProtoMessage() {}
+func (*UPDFWTypeRequest) ProtoMessage() {}
 
-func (x *ChangeTypeRequest) ProtoReflect() protoreflect.Message {
+func (x *UPDFWTypeRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_sshProto_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -53,21 +53,19 @@ func (x *ChangeTypeRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ChangeTypeRequest.ProtoReflect.Descriptor instead.
-func (*ChangeTypeRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use UPDFWTypeRequest.ProtoReflect.Descriptor instead.
+func (*UPDFWTypeRequest) Descriptor() ([]byte, []int) {
 	return file_sshProto_proto_rawDescGZIP(), []int{0}
 }
 
-type ChangeTypeResponse struct {
+type UPDFWTypeResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
-
-	Type string `protobuf:"bytes,1,opt,name=type,proto3" json:"type,omitempty"`
 }
 
-func (x *ChangeTypeResponse) Reset() {
-	*x = ChangeTypeResponse{}
+func (x *UPDFWTypeResponse) Reset() {
+	*x = UPDFWTypeResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_sshProto_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -75,13 +73,13 @@ func (x *ChangeTypeResponse) Reset() {
 	}
 }
 
-func (x *ChangeTypeResponse) String() string {
+func (x *UPDFWTypeResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ChangeTypeResponse) ProtoMessage() {}
+func (*UPDFWTypeResponse) ProtoMessage() {}
 
-func (x *ChangeTypeResponse) ProtoReflect() protoreflect.Message {
+func (x *UPDFWTypeResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_sshProto_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -93,110 +91,9 @@ func (x *ChangeTypeResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ChangeTypeResponse.ProtoReflect.Descriptor instead.
-func (*ChangeTypeResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use UPDFWTypeResponse.ProtoReflect.Descriptor instead.
+func (*UPDFWTypeResponse) Descriptor() ([]byte, []int) {
 	return file_sshProto_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *ChangeTypeResponse) GetType() string {
-	if x != nil {
-		return x.Type
-	}
-	return ""
-}
-
-type ChangeRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Settings []*Settings `protobuf:"bytes,1,rep,name=Settings,proto3" json:"Settings,omitempty"`
-}
-
-func (x *ChangeRequest) Reset() {
-	*x = ChangeRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_sshProto_proto_msgTypes[2]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *ChangeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ChangeRequest) ProtoMessage() {}
-
-func (x *ChangeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_sshProto_proto_msgTypes[2]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ChangeRequest.ProtoReflect.Descriptor instead.
-func (*ChangeRequest) Descriptor() ([]byte, []int) {
-	return file_sshProto_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *ChangeRequest) GetSettings() []*Settings {
-	if x != nil {
-		return x.Settings
-	}
-	return nil
-}
-
-type ChangeResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Status string `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
-}
-
-func (x *ChangeResponse) Reset() {
-	*x = ChangeResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_sshProto_proto_msgTypes[3]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *ChangeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ChangeResponse) ProtoMessage() {}
-
-func (x *ChangeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_sshProto_proto_msgTypes[3]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ChangeResponse.ProtoReflect.Descriptor instead.
-func (*ChangeResponse) Descriptor() ([]byte, []int) {
-	return file_sshProto_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *ChangeResponse) GetStatus() string {
-	if x != nil {
-		return x.Status
-	}
-	return ""
 }
 
 type Settings struct {
@@ -211,7 +108,7 @@ type Settings struct {
 func (x *Settings) Reset() {
 	*x = Settings{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sshProto_proto_msgTypes[4]
+		mi := &file_sshProto_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -224,7 +121,7 @@ func (x *Settings) String() string {
 func (*Settings) ProtoMessage() {}
 
 func (x *Settings) ProtoReflect() protoreflect.Message {
-	mi := &file_sshProto_proto_msgTypes[4]
+	mi := &file_sshProto_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -237,7 +134,7 @@ func (x *Settings) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Settings.ProtoReflect.Descriptor instead.
 func (*Settings) Descriptor() ([]byte, []int) {
-	return file_sshProto_proto_rawDescGZIP(), []int{4}
+	return file_sshProto_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *Settings) GetName() string {
@@ -254,38 +151,226 @@ func (x *Settings) GetValue() string {
 	return ""
 }
 
+type UpdateFirmwareRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Settings []*Settings `protobuf:"bytes,1,rep,name=Settings,proto3" json:"Settings,omitempty"`
+}
+
+func (x *UpdateFirmwareRequest) Reset() {
+	*x = UpdateFirmwareRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_sshProto_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UpdateFirmwareRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateFirmwareRequest) ProtoMessage() {}
+
+func (x *UpdateFirmwareRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_sshProto_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateFirmwareRequest.ProtoReflect.Descriptor instead.
+func (*UpdateFirmwareRequest) Descriptor() ([]byte, []int) {
+	return file_sshProto_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *UpdateFirmwareRequest) GetSettings() []*Settings {
+	if x != nil {
+		return x.Settings
+	}
+	return nil
+}
+
+type UpdateFirmwareResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Status string `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
+}
+
+func (x *UpdateFirmwareResponse) Reset() {
+	*x = UpdateFirmwareResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_sshProto_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UpdateFirmwareResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateFirmwareResponse) ProtoMessage() {}
+
+func (x *UpdateFirmwareResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_sshProto_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateFirmwareResponse.ProtoReflect.Descriptor instead.
+func (*UpdateFirmwareResponse) Descriptor() ([]byte, []int) {
+	return file_sshProto_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *UpdateFirmwareResponse) GetStatus() string {
+	if x != nil {
+		return x.Status
+	}
+	return ""
+}
+
+type PresetRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *PresetRequest) Reset() {
+	*x = PresetRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_sshProto_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *PresetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PresetRequest) ProtoMessage() {}
+
+func (x *PresetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_sshProto_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PresetRequest.ProtoReflect.Descriptor instead.
+func (*PresetRequest) Descriptor() ([]byte, []int) {
+	return file_sshProto_proto_rawDescGZIP(), []int{5}
+}
+
+type PresetResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Present string `protobuf:"bytes,1,opt,name=present,proto3" json:"present,omitempty"`
+}
+
+func (x *PresetResponse) Reset() {
+	*x = PresetResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_sshProto_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *PresetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PresetResponse) ProtoMessage() {}
+
+func (x *PresetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_sshProto_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PresetResponse.ProtoReflect.Descriptor instead.
+func (*PresetResponse) Descriptor() ([]byte, []int) {
+	return file_sshProto_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *PresetResponse) GetPresent() string {
+	if x != nil {
+		return x.Present
+	}
+	return ""
+}
+
 var File_sshProto_proto protoreflect.FileDescriptor
 
 var file_sshProto_proto_rawDesc = []byte{
 	0x0a, 0x0e, 0x73, 0x73, 0x68, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x12, 0x0c, 0x53, 0x73, 0x68, 0x54, 0x66, 0x74, 0x66, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x13,
-	0x0a, 0x11, 0x43, 0x68, 0x61, 0x6e, 0x67, 0x65, 0x54, 0x79, 0x70, 0x65, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x22, 0x28, 0x0a, 0x12, 0x43, 0x68, 0x61, 0x6e, 0x67, 0x65, 0x54, 0x79, 0x70,
-	0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x74, 0x79, 0x70,
-	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x74, 0x79, 0x70, 0x65, 0x22, 0x43, 0x0a,
-	0x0d, 0x43, 0x68, 0x61, 0x6e, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x32,
-	0x0a, 0x08, 0x53, 0x65, 0x74, 0x74, 0x69, 0x6e, 0x67, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b,
-	0x32, 0x16, 0x2e, 0x53, 0x73, 0x68, 0x54, 0x66, 0x74, 0x66, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x2e,
-	0x53, 0x65, 0x74, 0x74, 0x69, 0x6e, 0x67, 0x73, 0x52, 0x08, 0x53, 0x65, 0x74, 0x74, 0x69, 0x6e,
-	0x67, 0x73, 0x22, 0x28, 0x0a, 0x0e, 0x43, 0x68, 0x61, 0x6e, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70,
+	0x12, 0x0c, 0x53, 0x73, 0x68, 0x54, 0x66, 0x74, 0x66, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x12,
+	0x0a, 0x10, 0x55, 0x50, 0x44, 0x46, 0x57, 0x54, 0x79, 0x70, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x22, 0x13, 0x0a, 0x11, 0x55, 0x50, 0x44, 0x46, 0x57, 0x54, 0x79, 0x70, 0x65, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x34, 0x0a, 0x08, 0x53, 0x65, 0x74, 0x74, 0x69,
+	0x6e, 0x67, 0x73, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x4b, 0x0a,
+	0x15, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x46, 0x69, 0x72, 0x6d, 0x77, 0x61, 0x72, 0x65, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x32, 0x0a, 0x08, 0x53, 0x65, 0x74, 0x74, 0x69, 0x6e,
+	0x67, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x16, 0x2e, 0x53, 0x73, 0x68, 0x54, 0x66,
+	0x74, 0x66, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x53, 0x65, 0x74, 0x74, 0x69, 0x6e, 0x67, 0x73,
+	0x52, 0x08, 0x53, 0x65, 0x74, 0x74, 0x69, 0x6e, 0x67, 0x73, 0x22, 0x30, 0x0a, 0x16, 0x55, 0x70,
+	0x64, 0x61, 0x74, 0x65, 0x46, 0x69, 0x72, 0x6d, 0x77, 0x61, 0x72, 0x65, 0x52, 0x65, 0x73, 0x70,
 	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x22, 0x34, 0x0a, 0x08,
-	0x53, 0x65, 0x74, 0x74, 0x69, 0x6e, 0x67, 0x73, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x14, 0x0a, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x32, 0xa6, 0x01, 0x0a, 0x0e, 0x46, 0x69, 0x72, 0x6d, 0x77, 0x61, 0x72, 0x65, 0x44,
-	0x65, 0x76, 0x69, 0x63, 0x65, 0x12, 0x4f, 0x0a, 0x0a, 0x43, 0x68, 0x61, 0x6e, 0x67, 0x65, 0x54,
-	0x79, 0x70, 0x65, 0x12, 0x1f, 0x2e, 0x53, 0x73, 0x68, 0x54, 0x66, 0x74, 0x66, 0x50, 0x72, 0x6f,
-	0x74, 0x6f, 0x2e, 0x43, 0x68, 0x61, 0x6e, 0x67, 0x65, 0x54, 0x79, 0x70, 0x65, 0x52, 0x65, 0x71,
-	0x75, 0x65, 0x73, 0x74, 0x1a, 0x20, 0x2e, 0x53, 0x73, 0x68, 0x54, 0x66, 0x74, 0x66, 0x50, 0x72,
-	0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x68, 0x61, 0x6e, 0x67, 0x65, 0x54, 0x79, 0x70, 0x65, 0x52, 0x65,
-	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x43, 0x0a, 0x06, 0x43, 0x68, 0x61, 0x6e, 0x67, 0x65,
-	0x12, 0x1b, 0x2e, 0x53, 0x73, 0x68, 0x54, 0x66, 0x74, 0x66, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x2e,
-	0x43, 0x68, 0x61, 0x6e, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1c, 0x2e,
-	0x53, 0x73, 0x68, 0x54, 0x66, 0x74, 0x66, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x68, 0x61,
-	0x6e, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x0d, 0x5a, 0x0b, 0x66,
-	0x69, 0x72, 0x6d, 0x77, 0x61, 0x72, 0x65, 0x2e, 0x76, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x33,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x22, 0x0f, 0x0a, 0x0d,
+	0x50, 0x72, 0x65, 0x73, 0x65, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x2a, 0x0a,
+	0x0e, 0x50, 0x72, 0x65, 0x73, 0x65, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x18, 0x0a, 0x07, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x07, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x74, 0x32, 0x80, 0x02, 0x0a, 0x0e, 0x46, 0x69,
+	0x72, 0x6d, 0x77, 0x61, 0x72, 0x65, 0x44, 0x65, 0x76, 0x69, 0x63, 0x65, 0x12, 0x4c, 0x0a, 0x09,
+	0x55, 0x50, 0x44, 0x46, 0x57, 0x54, 0x79, 0x70, 0x65, 0x12, 0x1e, 0x2e, 0x53, 0x73, 0x68, 0x54,
+	0x66, 0x74, 0x66, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x55, 0x50, 0x44, 0x46, 0x57, 0x54, 0x79,
+	0x70, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1f, 0x2e, 0x53, 0x73, 0x68, 0x54,
+	0x66, 0x74, 0x66, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x55, 0x50, 0x44, 0x46, 0x57, 0x54, 0x79,
+	0x70, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x5b, 0x0a, 0x0e, 0x55, 0x70,
+	0x64, 0x61, 0x74, 0x65, 0x46, 0x69, 0x72, 0x6d, 0x77, 0x61, 0x72, 0x65, 0x12, 0x23, 0x2e, 0x53,
+	0x73, 0x68, 0x54, 0x66, 0x74, 0x66, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x55, 0x70, 0x64, 0x61,
+	0x74, 0x65, 0x46, 0x69, 0x72, 0x6d, 0x77, 0x61, 0x72, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x1a, 0x24, 0x2e, 0x53, 0x73, 0x68, 0x54, 0x66, 0x74, 0x66, 0x50, 0x72, 0x6f, 0x74, 0x6f,
+	0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x46, 0x69, 0x72, 0x6d, 0x77, 0x61, 0x72, 0x65, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x43, 0x0a, 0x06, 0x50, 0x72, 0x65, 0x73, 0x65,
+	0x74, 0x12, 0x1b, 0x2e, 0x53, 0x73, 0x68, 0x54, 0x66, 0x74, 0x66, 0x50, 0x72, 0x6f, 0x74, 0x6f,
+	0x2e, 0x50, 0x72, 0x65, 0x73, 0x65, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1c,
+	0x2e, 0x53, 0x73, 0x68, 0x54, 0x66, 0x74, 0x66, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x50, 0x72,
+	0x65, 0x73, 0x65, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x0d, 0x5a, 0x0b,
+	0x66, 0x69, 0x72, 0x6d, 0x77, 0x61, 0x72, 0x65, 0x2e, 0x76, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x33,
 }
 
 var (
@@ -300,22 +385,26 @@ func file_sshProto_proto_rawDescGZIP() []byte {
 	return file_sshProto_proto_rawDescData
 }
 
-var file_sshProto_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_sshProto_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_sshProto_proto_goTypes = []interface{}{
-	(*ChangeTypeRequest)(nil),  // 0: SshTftfProto.ChangeTypeRequest
-	(*ChangeTypeResponse)(nil), // 1: SshTftfProto.ChangeTypeResponse
-	(*ChangeRequest)(nil),      // 2: SshTftfProto.ChangeRequest
-	(*ChangeResponse)(nil),     // 3: SshTftfProto.ChangeResponse
-	(*Settings)(nil),           // 4: SshTftfProto.Settings
+	(*UPDFWTypeRequest)(nil),       // 0: SshTftfProto.UPDFWTypeRequest
+	(*UPDFWTypeResponse)(nil),      // 1: SshTftfProto.UPDFWTypeResponse
+	(*Settings)(nil),               // 2: SshTftfProto.Settings
+	(*UpdateFirmwareRequest)(nil),  // 3: SshTftfProto.UpdateFirmwareRequest
+	(*UpdateFirmwareResponse)(nil), // 4: SshTftfProto.UpdateFirmwareResponse
+	(*PresetRequest)(nil),          // 5: SshTftfProto.PresetRequest
+	(*PresetResponse)(nil),         // 6: SshTftfProto.PresetResponse
 }
 var file_sshProto_proto_depIdxs = []int32{
-	4, // 0: SshTftfProto.ChangeRequest.Settings:type_name -> SshTftfProto.Settings
-	0, // 1: SshTftfProto.FirmwareDevice.ChangeType:input_type -> SshTftfProto.ChangeTypeRequest
-	2, // 2: SshTftfProto.FirmwareDevice.Change:input_type -> SshTftfProto.ChangeRequest
-	1, // 3: SshTftfProto.FirmwareDevice.ChangeType:output_type -> SshTftfProto.ChangeTypeResponse
-	3, // 4: SshTftfProto.FirmwareDevice.Change:output_type -> SshTftfProto.ChangeResponse
-	3, // [3:5] is the sub-list for method output_type
-	1, // [1:3] is the sub-list for method input_type
+	2, // 0: SshTftfProto.UpdateFirmwareRequest.Settings:type_name -> SshTftfProto.Settings
+	0, // 1: SshTftfProto.FirmwareDevice.UPDFWType:input_type -> SshTftfProto.UPDFWTypeRequest
+	3, // 2: SshTftfProto.FirmwareDevice.UpdateFirmware:input_type -> SshTftfProto.UpdateFirmwareRequest
+	5, // 3: SshTftfProto.FirmwareDevice.Preset:input_type -> SshTftfProto.PresetRequest
+	1, // 4: SshTftfProto.FirmwareDevice.UPDFWType:output_type -> SshTftfProto.UPDFWTypeResponse
+	4, // 5: SshTftfProto.FirmwareDevice.UpdateFirmware:output_type -> SshTftfProto.UpdateFirmwareResponse
+	6, // 6: SshTftfProto.FirmwareDevice.Preset:output_type -> SshTftfProto.PresetResponse
+	4, // [4:7] is the sub-list for method output_type
+	1, // [1:4] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
 	1, // [1:1] is the sub-list for extension extendee
 	0, // [0:1] is the sub-list for field type_name
@@ -328,7 +417,7 @@ func file_sshProto_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_sshProto_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ChangeTypeRequest); i {
+			switch v := v.(*UPDFWTypeRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -340,7 +429,7 @@ func file_sshProto_proto_init() {
 			}
 		}
 		file_sshProto_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ChangeTypeResponse); i {
+			switch v := v.(*UPDFWTypeResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -352,7 +441,7 @@ func file_sshProto_proto_init() {
 			}
 		}
 		file_sshProto_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ChangeRequest); i {
+			switch v := v.(*Settings); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -364,7 +453,7 @@ func file_sshProto_proto_init() {
 			}
 		}
 		file_sshProto_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ChangeResponse); i {
+			switch v := v.(*UpdateFirmwareRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -376,7 +465,31 @@ func file_sshProto_proto_init() {
 			}
 		}
 		file_sshProto_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Settings); i {
+			switch v := v.(*UpdateFirmwareResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_sshProto_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*PresetRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_sshProto_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*PresetResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -394,7 +507,7 @@ func file_sshProto_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_sshProto_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   5,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

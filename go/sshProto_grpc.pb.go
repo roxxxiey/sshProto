@@ -22,8 +22,9 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type FirmwareDeviceClient interface {
-	ChangeType(ctx context.Context, in *ChangeTypeRequest, opts ...grpc.CallOption) (*ChangeTypeResponse, error)
-	Change(ctx context.Context, in *ChangeRequest, opts ...grpc.CallOption) (*ChangeResponse, error)
+	UPDFWType(ctx context.Context, in *UPDFWTypeRequest, opts ...grpc.CallOption) (*UPDFWTypeResponse, error)
+	UpdateFirmware(ctx context.Context, in *UpdateFirmwareRequest, opts ...grpc.CallOption) (*UpdateFirmwareResponse, error)
+	Preset(ctx context.Context, in *PresetRequest, opts ...grpc.CallOption) (*PresetResponse, error)
 }
 
 type firmwareDeviceClient struct {
@@ -34,18 +35,27 @@ func NewFirmwareDeviceClient(cc grpc.ClientConnInterface) FirmwareDeviceClient {
 	return &firmwareDeviceClient{cc}
 }
 
-func (c *firmwareDeviceClient) ChangeType(ctx context.Context, in *ChangeTypeRequest, opts ...grpc.CallOption) (*ChangeTypeResponse, error) {
-	out := new(ChangeTypeResponse)
-	err := c.cc.Invoke(ctx, "/SshTftfProto.FirmwareDevice/ChangeType", in, out, opts...)
+func (c *firmwareDeviceClient) UPDFWType(ctx context.Context, in *UPDFWTypeRequest, opts ...grpc.CallOption) (*UPDFWTypeResponse, error) {
+	out := new(UPDFWTypeResponse)
+	err := c.cc.Invoke(ctx, "/SshTftfProto.FirmwareDevice/UPDFWType", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *firmwareDeviceClient) Change(ctx context.Context, in *ChangeRequest, opts ...grpc.CallOption) (*ChangeResponse, error) {
-	out := new(ChangeResponse)
-	err := c.cc.Invoke(ctx, "/SshTftfProto.FirmwareDevice/Change", in, out, opts...)
+func (c *firmwareDeviceClient) UpdateFirmware(ctx context.Context, in *UpdateFirmwareRequest, opts ...grpc.CallOption) (*UpdateFirmwareResponse, error) {
+	out := new(UpdateFirmwareResponse)
+	err := c.cc.Invoke(ctx, "/SshTftfProto.FirmwareDevice/UpdateFirmware", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *firmwareDeviceClient) Preset(ctx context.Context, in *PresetRequest, opts ...grpc.CallOption) (*PresetResponse, error) {
+	out := new(PresetResponse)
+	err := c.cc.Invoke(ctx, "/SshTftfProto.FirmwareDevice/Preset", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,8 +66,9 @@ func (c *firmwareDeviceClient) Change(ctx context.Context, in *ChangeRequest, op
 // All implementations must embed UnimplementedFirmwareDeviceServer
 // for forward compatibility
 type FirmwareDeviceServer interface {
-	ChangeType(context.Context, *ChangeTypeRequest) (*ChangeTypeResponse, error)
-	Change(context.Context, *ChangeRequest) (*ChangeResponse, error)
+	UPDFWType(context.Context, *UPDFWTypeRequest) (*UPDFWTypeResponse, error)
+	UpdateFirmware(context.Context, *UpdateFirmwareRequest) (*UpdateFirmwareResponse, error)
+	Preset(context.Context, *PresetRequest) (*PresetResponse, error)
 	mustEmbedUnimplementedFirmwareDeviceServer()
 }
 
@@ -65,11 +76,14 @@ type FirmwareDeviceServer interface {
 type UnimplementedFirmwareDeviceServer struct {
 }
 
-func (UnimplementedFirmwareDeviceServer) ChangeType(context.Context, *ChangeTypeRequest) (*ChangeTypeResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ChangeType not implemented")
+func (UnimplementedFirmwareDeviceServer) UPDFWType(context.Context, *UPDFWTypeRequest) (*UPDFWTypeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UPDFWType not implemented")
 }
-func (UnimplementedFirmwareDeviceServer) Change(context.Context, *ChangeRequest) (*ChangeResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Change not implemented")
+func (UnimplementedFirmwareDeviceServer) UpdateFirmware(context.Context, *UpdateFirmwareRequest) (*UpdateFirmwareResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateFirmware not implemented")
+}
+func (UnimplementedFirmwareDeviceServer) Preset(context.Context, *PresetRequest) (*PresetResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Preset not implemented")
 }
 func (UnimplementedFirmwareDeviceServer) mustEmbedUnimplementedFirmwareDeviceServer() {}
 
@@ -84,38 +98,56 @@ func RegisterFirmwareDeviceServer(s grpc.ServiceRegistrar, srv FirmwareDeviceSer
 	s.RegisterService(&FirmwareDevice_ServiceDesc, srv)
 }
 
-func _FirmwareDevice_ChangeType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ChangeTypeRequest)
+func _FirmwareDevice_UPDFWType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UPDFWTypeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FirmwareDeviceServer).ChangeType(ctx, in)
+		return srv.(FirmwareDeviceServer).UPDFWType(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/SshTftfProto.FirmwareDevice/ChangeType",
+		FullMethod: "/SshTftfProto.FirmwareDevice/UPDFWType",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FirmwareDeviceServer).ChangeType(ctx, req.(*ChangeTypeRequest))
+		return srv.(FirmwareDeviceServer).UPDFWType(ctx, req.(*UPDFWTypeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _FirmwareDevice_Change_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ChangeRequest)
+func _FirmwareDevice_UpdateFirmware_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateFirmwareRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FirmwareDeviceServer).Change(ctx, in)
+		return srv.(FirmwareDeviceServer).UpdateFirmware(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/SshTftfProto.FirmwareDevice/Change",
+		FullMethod: "/SshTftfProto.FirmwareDevice/UpdateFirmware",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FirmwareDeviceServer).Change(ctx, req.(*ChangeRequest))
+		return srv.(FirmwareDeviceServer).UpdateFirmware(ctx, req.(*UpdateFirmwareRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FirmwareDevice_Preset_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PresetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FirmwareDeviceServer).Preset(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/SshTftfProto.FirmwareDevice/Preset",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FirmwareDeviceServer).Preset(ctx, req.(*PresetRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -128,12 +160,16 @@ var FirmwareDevice_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*FirmwareDeviceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "ChangeType",
-			Handler:    _FirmwareDevice_ChangeType_Handler,
+			MethodName: "UPDFWType",
+			Handler:    _FirmwareDevice_UPDFWType_Handler,
 		},
 		{
-			MethodName: "Change",
-			Handler:    _FirmwareDevice_Change_Handler,
+			MethodName: "UpdateFirmware",
+			Handler:    _FirmwareDevice_UpdateFirmware_Handler,
+		},
+		{
+			MethodName: "Preset",
+			Handler:    _FirmwareDevice_Preset_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

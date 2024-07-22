@@ -5,9 +5,17 @@ package SshTftfProto;
 option go_package = "firmware.v1";
 
 service FirmwareDevice{
-    rpc UPDFWType () returns ();
+    rpc UPDFWType (UPDFWTypeRequest) returns (UPDFWTypeResponse);
     rpc UpdateFirmware(UpdateFirmwareRequest) returns (UpdateFirmwareResponse);
     rpc Preset(PresetRequest) returns (PresetResponse);
+}
+
+message UPDFWTypeRequest{
+
+}
+
+message UPDFWTypeResponse{
+
 }
 
 message Settings{

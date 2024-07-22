@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../SSHTFTP/.idea/SSHTFTP.iml" filepath="$PROJECT_DIR$/../SSHTFTP/.idea/SSHTFTP.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/SshTftfpProto.iml" filepath="$PROJECT_DIR$/.idea/SshTftfpProto.iml" />
     </modules>
   </component>
