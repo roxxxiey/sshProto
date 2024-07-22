@@ -5,27 +5,31 @@ package SshTftfProto;
 option go_package = "firmware.v1";
 
 service FirmwareDevice{
-    rpc ChangeType(ChangeTypeRequest) returns (ChangeTypeResponse);
-    rpc Change(ChangeRequest) returns (ChangeResponse);
-}
-
-message ChangeTypeRequest {
-
-}
-
-message ChangeTypeResponse {
-    string type = 1;
-}
-
-message ChangeRequest{
-    repeated Settings Settings = 1;
-}
-
-message ChangeResponse{
-    string status =1;
+    rpc UPDFWType () returns ();
+    rpc UpdateFirmware(UpdateFirmwareRequest) returns (UpdateFirmwareResponse);
+    rpc Preset(PresetRequest) returns (PresetResponse);
 }
 
 message Settings{
     string name = 1;
     string value = 2;
 }
+
+message UpdateFirmwareRequest{
+    repeated Settings Settings = 1;
+}
+
+message UpdateFirmwareResponse{
+    string status =1;
+}
+
+message PresetRequest {
+
+}
+
+message PresetResponse {
+    string present = 1;
+}
+
+
+
